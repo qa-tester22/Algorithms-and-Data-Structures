@@ -1,0 +1,109 @@
+[
+    {
+        "key": "algorithm",
+        "term_en": "Algorithm",
+        "term_ru": "Алгоритм",
+        "definition_en": "A finite, well-defined sequence of steps that takes input data and produces output data to solve a specific problem.",
+        "definition_ru": "Конечная, однозначно определённая последовательность шагов, которая принимает входные данные и выдаёт выходные данные для решения конкретной задачи.",
+        "notes_en": "Algorithms can be described in plain language, as code, or as a hardware process. The key is precision: each step is unambiguous.",
+        "notes_ru": "Алгоритм можно описать словами, кодом или даже аппаратной схемой. Главное требование - точность: каждый шаг должен быть однозначным."
+    },
+    {
+        "key": "computational_problem",
+        "term_en": "Computational problem",
+        "term_ru": "Вычислительная задача",
+        "definition_en": "A formally stated task that defines which outputs are expected for each valid input (the input-output relationship).",
+        "definition_ru": "Формально заданная задача, где определено, какой вывод ожидается для каждого корректного ввода (отношение вход-выход)."
+    },
+    {
+        "key": "input_output",
+        "term_en": "Input / Output",
+        "term_ru": "Ввод / Вывод",
+        "definition_en": "Input is the data an algorithm receives. Output is the result it produces after processing the input.",
+        "definition_ru": "Ввод - данные, которые получает алгоритм. Вывод - результат, который алгоритм выдаёт после обработки ввода."
+    },
+    {
+        "key": "correctness",
+        "term_en": "Correct algorithm",
+        "term_ru": "Корректный алгоритм",
+        "definition_en": "An algorithm is correct if for every valid input it terminates and produces the expected output defined by the problem statement.",
+        "definition_ru": "Алгоритм корректен, если для любого корректного ввода он завершается и выдаёт ожидаемый вывод, заданный постановкой задачи."
+    },
+    {
+        "key": "termination",
+        "term_en": "Termination (halts)",
+        "term_ru": "Завершение (остановка)",
+        "definition_en": "An algorithm terminates if it finishes after a finite number of steps, rather than running forever.",
+        "definition_ru": "Алгоритм завершается, если заканчивает работу за конечное число шагов, а не выполняется бесконечно."
+    },
+    {
+        "key": "logarithm",
+        "term_en": "Logarithm (base 2)",
+        "term_ru": "Логарифм (по основанию 2)",
+        "definition_en": "log2(n) is the number of times you can divide n by 2 until you get down to 1 (up to rounding). It also equals the number of yes/no decisions needed to identify 1 item out of n possibilities.",
+        "definition_ru": "log2(n) - это сколько раз можно делить n на 2, пока не останется 1 (с округлением). Это также число двоичных решений «да/нет», достаточных, чтобы выбрать 1 вариант из n возможных."
+    },
+    {
+        "key": "array_index",
+        "term_en": "Index",
+        "term_ru": "Индекс",
+        "definition_en": "A position number used to access an element in a sequence. In many languages arrays are 0-indexed, meaning the first element is at index 0.",
+        "definition_ru": "Номер позиции элемента в последовательности. Во многих языках массивы индексируются с нуля: первый элемент имеет индекс 0."
+    },
+    {
+        "key": "sorted_sequence",
+        "term_en": "Sorted sequence",
+        "term_ru": "Отсортированная последовательность",
+        "definition_en": "A sequence where elements are arranged in non-decreasing or non-increasing order, which enables efficient searching methods like binary search.",
+        "definition_ru": "Последовательность, в которой элементы упорядочены по неубыванию или невозрастанию, что позволяет эффективно искать, например бинарным поиском."
+    },
+    {
+        "key": "linear_search",
+        "term_en": "Linear search",
+        "term_ru": "Линейный поиск",
+        "definition_en": "A search method that checks elements one by one from start to end until the target is found or the sequence ends.",
+        "definition_ru": "Метод поиска, при котором элементы проверяются по очереди от начала к концу, пока не найден искомый элемент или пока последовательность не закончится."
+    },
+    {
+        "key": "binary_search",
+        "term_en": "Binary search",
+        "term_ru": "Бинарный (двоичный) поиск",
+        "definition_en": "A search method for sorted sequences: compare the target with the middle element, discard half of the remaining candidates, and repeat until found or the range is empty.",
+        "definition_ru": "Метод поиска по отсортированной последовательности: сравниваем искомое со средним элементом, отбрасываем половину кандидатов и повторяем, пока не найдём элемент или диапазон не станет пустым."
+    },
+    {
+        "key": "search_range",
+        "term_en": "Search range (low/high)",
+        "term_ru": "Диапазон поиска (low/high)",
+        "definition_en": "The current interval of candidate positions that may still contain the answer. Each binary search step shrinks this interval.",
+        "definition_ru": "Текущий интервал позиций-кандидатов, в котором ещё может находиться ответ. На каждом шаге бинарного поиска этот интервал сужается."
+    },
+    {
+        "key": "midpoint",
+        "term_en": "Midpoint (mid)",
+        "term_ru": "Середина (mid)",
+        "definition_en": "The middle index of the current search range, often computed as floor((low + high) / 2).",
+        "definition_ru": "Индекс середины текущего диапазона поиска, обычно вычисляется как floor((low + high) / 2)."
+    },
+    {
+        "key": "worst_case_steps",
+        "term_en": "Worst-case number of steps",
+        "term_ru": "Число шагов в худшем случае",
+        "definition_en": "The maximum steps an algorithm may take over all valid inputs of a given size. For binary search this grows about log2(n).",
+        "definition_ru": "Максимальное число шагов, которое алгоритм может сделать на всех корректных вводах заданного размера. Для бинарного поиска это растёт примерно как log2(n)."
+    },
+    {
+        "key": "precondition",
+        "term_en": "Precondition",
+        "term_ru": "Предусловие",
+        "definition_en": "A requirement that must be true before running an algorithm. For binary search the key precondition is that the data is sorted.",
+        "definition_ru": "Условие, которое должно быть истинным перед запуском алгоритма. Для бинарного поиска ключевое предусловие - данные должны быть отсортированы."
+    },
+    {
+        "key": "invariant",
+        "term_en": "Invariant",
+        "term_ru": "Инвариант",
+        "definition_en": "A property that remains true throughout a loop or recursion. In binary search: if the target exists, it is always within the current [low, high] range.",
+        "definition_ru": "Свойство, которое остаётся истинным на протяжении цикла или рекурсии. В бинарном поиске: если элемент существует, он всегда находится внутри текущего диапазона [low, high]."
+    }
+]
