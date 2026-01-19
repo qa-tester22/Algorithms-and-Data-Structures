@@ -1,0 +1,27 @@
+[
+    {
+        "key": "array",
+        "term_en": "Array",
+        "term_ru": "Массив",
+        "definition_ru_easy": "Серию элементов можно сохранить в непрерывной последовательности ячеек, которая называется массивом. Нумерация ячеек начинается с 0: первая ячейка находится в позиции с номером 0, вторая - в позиции с номером 1 и т. д."
+    },
+
+
+    {
+        "key": "algorithm",
+        "term_en": "Algorithm",
+        "term_ru": "Алгоритм",
+        "definition_ru_easy": "Алгоритмом называется набор инструкций для выполнения некоторой задачи.",
+        "definition_en": "A finite, well-defined sequence of steps that takes input data and produces output data to solve a specific problem.",
+        "definition_ru": "Конечная, однозначно определённая последовательность шагов, которая принимает входные данные и выдаёт выходные данные для решения конкретной задачи.",
+        "notes_en": "Algorithms can be described in plain language, as code, or as a hardware process. The key is precision: each step is unambiguous.",
+        "notes_ru": "Алгоритм можно описать словами, кодом или даже аппаратной схемой. Главное требование - точность: каждый шаг должен быть однозначным."
+    },
+    {
+        "key": "computational_problem",
+        "term_en": "Computational problem",
+        "term_ru": "Вычислительная задача",
+        "definition_en": "A formally stated task that defines which outputs are expected for each valid input (the input-output relationship).",
+        "definition_ru": "Формально заданная задача, где определено, какой вывод ожидается для каждого корректного ввода (отношение вход-выход)."
+    }
+]

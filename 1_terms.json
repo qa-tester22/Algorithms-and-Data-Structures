@@ -3,6 +3,7 @@
         "key": "algorithm",
         "term_en": "Algorithm",
         "term_ru": "Алгоритм",
+        "definition_ru_easy": "Алгоритмом называется набор инструкций для выполнения некоторой задачи.",
         "definition_en": "A finite, well-defined sequence of steps that takes input data and produces output data to solve a specific problem.",
         "definition_ru": "Конечная, однозначно определённая последовательность шагов, которая принимает входные данные и выдаёт выходные данные для решения конкретной задачи.",
         "notes_en": "Algorithms can be described in plain language, as code, or as a hardware process. The key is precision: each step is unambiguous.",
@@ -40,6 +41,7 @@
         "key": "logarithm",
         "term_en": "Logarithm (base 2)",
         "term_ru": "Логарифм (по основанию 2)",
+        "definition_ru_easy": "Логарифм - это операция, обратная возведению в степень",
         "definition_en": "log2(n) is the number of times you can divide n by 2 until you get down to 1 (up to rounding). It also equals the number of yes/no decisions needed to identify 1 item out of n possibilities.",
         "definition_ru": "log2(n) - это сколько раз можно делить n на 2, пока не останется 1 (с округлением). Это также число двоичных решений «да/нет», достаточных, чтобы выбрать 1 вариант из n возможных."
     },
@@ -68,6 +70,7 @@
         "key": "binary_search",
         "term_en": "Binary search",
         "term_ru": "Бинарный (двоичный) поиск",
+        "definition_ru_easy": "Бинарный поиск - это алгоритм; на входе он получает отсортированный список элементов (позднее я объясню, почему он должен быть отсортирован). Если элемент, который вы ищете, присутствует в списке, то бинарный поиск возвращает ту позицию, в которой он был найден. В противном случае бинарный поиск возвращает null. Бинарный поиск выполняется за логарифмическое время.",
         "definition_en": "A search method for sorted sequences: compare the target with the middle element, discard half of the remaining candidates, and repeat until found or the range is empty.",
         "definition_ru": "Метод поиска по отсортированной последовательности: сравниваем искомое со средним элементом, отбрасываем половину кандидатов и повторяем, пока не найдём элемент или диапазон не станет пустым."
     },

@@ -1,4 +1,5 @@
 /**
+ * 35. Search Insert Position
 Given a sorted array of distinct integers and a target value, return the index if the target is found. If not, return the index where it would be if it were inserted in order.
 
 You must write an algorithm with O(log n) runtime complexity.
@@ -52,11 +53,11 @@ let target3 = 7;
 // Output: 4
 
 console.log("Example 1:");
-searchInsert(nums1, target1);
+searchInsert(nums1, target1);  // Output: 2  //
 console.log("Example 2:");
-searchInsert(nums2, target2);
+searchInsert(nums2, target2);  // Output: 1  //
 console.log("Example 3:");
-searchInsert(nums3, target3);
+searchInsert(nums3, target3);  // Output: 4  //
 
 /**
  * 35. Поиск. Вставка позиции.
@@ -64,8 +65,6 @@ searchInsert(nums3, target3);
 Имея отсортированный массив различных целых чисел и целевое значение, верните индекс, если целевое значение найдено. В противном случае верните индекс, по которому оно находилось бы, если бы было вставлено в порядке возрастания.
 
 Вам необходимо написать алгоритм с  O(log n)заданной временной сложностью.
-
- 
 
 Пример 1:
 
@@ -87,4 +86,16 @@ searchInsert(nums3, target3);
 -10^4 <= nums[i] <= 10^4
 numsСодержит уникальные значения, отсортированные в порядке возрастания .
 -10^4 <= target <= 10^4
+ */
+
+/**
+ * 
+Задача выглядит простой, но здесь есть классная идея в том, что мы не просто ищем target, а находим место, куда его нужно вставить, чтобы массив остался отсортированным. Это ровно паттерн Lower Bound | первый индекс, где nums[i] >= target.
+
+Мы решаем задачу за O(log n) с помощью бинарного поиска и аккуратных границ.
+
+Тут важный инсайт - мы ищем не “есть ли число”, а “где оно должно лежать”. То есть ответ существует всегда, даже если target нет в массиве. И это идеально решается одним бинарным поиском, который возвращает точку вставки.
+Трюк 1. В этой задаче нет варианта ‘не найдено’ как -1 или null. Если числа нет, ты всё равно обязан вернуть индекс, куда его вставить.
+Трюк 2. Нам нужен первый индекс, где значение НЕ меньше target, то есть nums[i] >= target.
+Трюк 3. Так как значения distinct, нет проблемы диапазона. В отличие от LeetCode 34, где два бинпоиска.
  */
