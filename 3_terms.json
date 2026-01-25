@@ -1,27 +1,112 @@
 [
-    {
-        "key": "array",
-        "term_en": "Array",
-        "term_ru": "Массив",
-        "definition_ru_easy": "Серию элементов можно сохранить в непрерывной последовательности ячеек, которая называется массивом. Нумерация ячеек начинается с 0: первая ячейка находится в позиции с номером 0, вторая - в позиции с номером 1 и т. д."
-    },
-
-
-    {
-        "key": "algorithm",
-        "term_en": "Algorithm",
-        "term_ru": "Алгоритм",
-        "definition_ru_easy": "Алгоритмом называется набор инструкций для выполнения некоторой задачи.",
-        "definition_en": "A finite, well-defined sequence of steps that takes input data and produces output data to solve a specific problem.",
-        "definition_ru": "Конечная, однозначно определённая последовательность шагов, которая принимает входные данные и выдаёт выходные данные для решения конкретной задачи.",
-        "notes_en": "Algorithms can be described in plain language, as code, or as a hardware process. The key is precision: each step is unambiguous.",
-        "notes_ru": "Алгоритм можно описать словами, кодом или даже аппаратной схемой. Главное требование - точность: каждый шаг должен быть однозначным."
-    },
-    {
-        "key": "computational_problem",
-        "term_en": "Computational problem",
-        "term_ru": "Вычислительная задача",
-        "definition_en": "A formally stated task that defines which outputs are expected for each valid input (the input-output relationship).",
-        "definition_ru": "Формально заданная задача, где определено, какой вывод ожидается для каждого корректного ввода (отношение вход-выход)."
-    }
+  {
+    "key": "array",
+    "term_en": "Array",
+    "term_ru": "Массив",
+    "definition_ru_easy": "Серию элементов можно сохранить в непрерывной последовательности ячеек, которая называется массивом. Нумерация ячеек начинается с 0: первая ячейка находится в позиции с номером 0, вторая - в позиции с номером 1 и т. д."
+  },
+ 
+  {
+    "key": "linked_list",
+    "term_en": "Linked list",
+    "term_ru": "Связанный список",
+    "definition_ru_easy": "Структура данных из узлов, где каждый узел хранит значение и ссылку на следующий узел. Узлы не обязаны лежать рядом в памяти.",
+    "definition_en": "A data structure made of nodes where each node stores a value and a reference to the next node.",
+    "definition_ru": "Структура данных из узлов, где каждый узел хранит значение и ссылку на следующий узел."
+  },
+  {
+    "key": "node",
+    "term_en": "Node",
+    "term_ru": "Узел",
+    "definition_ru_easy": "Один элемент связанного списка. Обычно содержит данные (value) и ссылку (next) на следующий узел.",
+    "notes_ru": "Узел сам по себе не является списком. Список появляется, когда узлы связаны ссылками."
+  },
+  {
+    "key": "reference",
+    "term_en": "Reference",
+    "term_ru": "Ссылка",
+    "definition_ru_easy": "Указание на другой объект в памяти. В связном списке поле next хранит ссылку на следующий узел.",
+    "notes_ru": "В JavaScript чаще говорят про references, а не про указатели в стиле C/C++."
+  },
+  {
+    "key": "pointer",
+    "term_en": "Pointer",
+    "term_ru": "Указатель",
+    "definition_ru_easy": "Переменная, которая хранит адрес в памяти. В JavaScript прямых указателей нет, но ссылки работают похоже по идее: они указывают на объект."
+  },
+  {
+    "key": "index",
+    "term_en": "Index",
+    "term_ru": "Индекс",
+    "definition_ru_easy": "Номер позиции элемента в массиве. В JavaScript индексация начинается с 0."
+  },
+  {
+    "key": "contiguous_memory",
+    "term_en": "Contiguous memory",
+    "term_ru": "Непрерывная область памяти",
+    "definition_ru_easy": "Кусок памяти, где элементы лежат подряд, один за другим. Массив хранится именно так, поэтому доступ по индексу быстрый."
+  },
+  {
+    "key": "random_access",
+    "term_en": "Random access",
+    "term_ru": "Произвольный доступ",
+    "definition_ru_easy": "Возможность быстро получить элемент по индексу без прохода по предыдущим элементам. У массива это обычно O(1).",
+    "notes_ru": "У связанного списка произвольного доступа нет: чтобы попасть к i-му элементу, нужно пройти от начала."
+  },
+  {
+    "key": "traversal",
+    "term_en": "Traversal",
+    "term_ru": "Обход",
+    "definition_ru_easy": "Последовательный проход по структуре данных. В связном списке обход делается, переходя current = current.next, пока current не станет null."
+  },
+  {
+    "key": "head",
+    "term_en": "Head",
+    "term_ru": "Голова списка",
+    "definition_ru_easy": "Первый узел связанного списка. От него начинается обход."
+  },
+  {
+    "key": "tail",
+    "term_en": "Tail",
+    "term_ru": "Хвост списка",
+    "definition_ru_easy": "Последний узел связанного списка. У него next обычно равен null."
+  },
+  {
+    "key": "dynamic_array",
+    "term_en": "Dynamic array",
+    "term_ru": "Динамический массив",
+    "definition_ru_easy": "Массив, который может увеличиваться по мере добавления элементов. Иногда при росте ему нужен новый более большой блок памяти, и тогда элементы копируются."
+  },
+  {
+    "key": "push",
+    "term_en": "push()",
+    "term_ru": "push()",
+    "definition_ru_easy": "Метод массива в JavaScript, который добавляет элемент в конец массива и увеличивает его длину."
+  },
+  {
+    "key": "pop",
+    "term_en": "pop()",
+    "term_ru": "pop()",
+    "definition_ru_easy": "Метод массива в JavaScript, который удаляет последний элемент массива и возвращает его."
+  },
+  {
+    "key": "big_o",
+    "term_en": "Big O notation",
+    "term_ru": "Нотация O-большое",
+    "definition_ru_easy": "Способ описывать, как растёт время или память алгоритма при увеличении размера входных данных (n).",
+    "notes_ru": "Чаще всего сравнивают порядок роста, а не точное число операций."
+  },
+  {
+    "key": "time_complexity",
+    "term_en": "Time complexity",
+    "term_ru": "Временная сложность",
+    "definition_ru_easy": "Оценка того, как растёт время выполнения алгоритма при росте n. Например, O(1), O(n), O(n^2)."
+  },
+  {
+    "key": "space_complexity",
+    "term_en": "Space complexity",
+    "term_ru": "Пространственная сложность",
+    "definition_ru_easy": "Оценка того, сколько дополнительной памяти нужно алгоритму при росте n. Например, O(1) если память почти не растёт, или O(n) если создаётся структура размером n."
+  }
 ]
+
