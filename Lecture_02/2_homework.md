@@ -37,6 +37,7 @@ Quickselect в среднем близок к O(n), но в худшем мож�
 
 5.
 217. Contains Duplicate
+[Решение| https://leetcode.com/problems/contains-duplicate/solutions/7534766/217-dublikat-ili-ne-dublikat-3-resheniia-94hs/  ]
 Почему: идеальная демонстрация “наивно vs умно”.
 брутфорс сравнивать всё со всем: O(n²)
 set/hash: O(n) по времени (и память в обмен).

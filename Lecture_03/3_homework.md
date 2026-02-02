@@ -1,5 +1,8 @@
 // Лекция 3. Массивы. Связанные списки.
 
+// Видео Лекции 3 на Ютубе - 
+// https://youtu.be/5VF03fj1sd4
+
 // Домашнее задание к Лекции 3.
 // https://leetcode.com/quest/data-structures-and-algorithms-quest/
 // 3 задачи первого уровня, и 2 задачи 2 уровня 

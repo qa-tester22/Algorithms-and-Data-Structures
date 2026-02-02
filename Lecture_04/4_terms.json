@@ -1,0 +1,378 @@
+{
+  "lecture": 4,
+  "topic_ru": "Вставка, удаление, доступ к элементам, сортировка выбором",
+  "terms": [
+    {
+      "key": "algorithm",
+      "term_en": "Algorithm",
+      "term_ru": "Алгоритм",
+      "definition_ru_easy": "Алгоритмом называется набор инструкций для выполнения некоторой задачи.",
+      "definition_en": "A finite, well-defined sequence of steps that takes input data and produces output data to solve a specific problem.",
+      "definition_ru": "Конечная, однозначно определённая последовательность шагов, которая принимает входные данные и выдаёт выходные данные для решения конкретной задачи.",
+      "notes_en": "Algorithms can be described in plain language, as code, or as a hardware process. The key is precision: each step is unambiguous.",
+      "notes_ru": "Алгоритм можно описать словами, кодом или даже аппаратной схемой. Главное требование - точность: каждый шаг должен быть однозначным."
+    },
+    {
+      "key": "data_structure",
+      "term_en": "Data structure",
+      "term_ru": "Структура данных",
+      "definition_ru_easy": "Способ хранить данные так, чтобы к ним было удобно и быстро обращаться.",
+      "definition_en": "A way to organize and store data so operations like access, insertion, deletion, and search are efficient.",
+      "definition_ru": "Способ организации и хранения данных, чтобы операции доступа, вставки, удаления и поиска выполнялись эффективно.",
+      "notes_en": "Choosing the right data structure often matters more than micro-optimizing code.",
+      "notes_ru": "Правильная структура данных часто важнее мелкой оптимизации кода."
+    },
+    {
+      "key": "array",
+      "term_en": "Array",
+      "term_ru": "Массив",
+      "definition_ru_easy": "Серию элементов можно сохранить в непрерывной последовательности ячеек, которая называется массивом. Нумерация ячеек начинается с 0: первая ячейка находится в позиции 0, вторая - в позиции 1 и т. д.",
+      "definition_en": "A collection of elements stored contiguously in memory, enabling fast access by index.",
+      "definition_ru": "Упорядоченная коллекция элементов, которые обычно лежат подряд в памяти и поддерживают быстрый доступ по индексу.",
+      "notes_en": "Arrays are great for indexed access, but inserting or deleting in the middle usually requires shifting elements.",
+      "notes_ru": "Массив хорош для доступа по индексу, но вставка или удаление в середине обычно требует сдвига элементов."
+    },
+    {
+      "key": "index",
+      "term_en": "Index",
+      "term_ru": "Индекс",
+      "definition_ru_easy": "Номер позиции элемента в массиве. В JavaScript индексация начинается с 0.",
+      "definition_en": "A position number used to access an element in an array, typically starting from 0.",
+      "definition_ru": "Номер позиции элемента в массиве, используемый для доступа к нему (обычно с нуля)."
+    },
+    {
+      "key": "zero_based_indexing",
+      "term_en": "Zero-based indexing",
+      "term_ru": "Нулевая индексация",
+      "definition_ru_easy": "Правило, когда первый элемент массива имеет индекс 0.",
+      "definition_en": "An indexing scheme where the first element has index 0.",
+      "definition_ru": "Схема индексации, при которой первый элемент имеет индекс 0."
+    },
+    {
+      "key": "contiguous_memory",
+      "term_en": "Contiguous memory",
+      "term_ru": "Непрерывная область памяти",
+      "definition_ru_easy": "Кусок памяти, где элементы лежат подряд, один за другим. Массив хранится именно так, поэтому доступ по индексу быстрый.",
+      "definition_en": "A block of memory where elements are stored next to each other.",
+      "definition_ru": "Участок памяти, где элементы расположены подряд."
+    },
+    {
+      "key": "random_access",
+      "term_en": "Random access",
+      "term_ru": "Произвольный доступ",
+      "definition_ru_easy": "Возможность быстро получить элемент по индексу без прохода по предыдущим элементам. У массива это обычно O(1).",
+      "definition_en": "Directly accessing an element by index without scanning earlier elements (often O(1) for arrays).",
+      "definition_ru": "Доступ к элементу напрямую по индексу без последовательного прохода по предыдущим элементам (часто O(1) у массивов).",
+      "notes_en": "Linked lists do not support true random access.",
+      "notes_ru": "У связанного списка произвольного доступа нет."
+    },
+    {
+      "key": "sequential_access",
+      "term_en": "Sequential access",
+      "term_ru": "Последовательный доступ",
+      "definition_ru_easy": "Доступ, при котором элементы читаются по одному, начиная с первого. В связном списке, чтобы попасть к i-му элементу, нужно пройти от головы.",
+      "definition_en": "Accessing elements one by one in order, typically starting from the beginning.",
+      "definition_ru": "Доступ к элементам по порядку, проходом от начала."
+    },
+    {
+      "key": "linked_list",
+      "term_en": "Linked list",
+      "term_ru": "Связанный список",
+      "definition_ru_easy": "Структура данных из узлов, где каждый узел хранит значение и ссылку на следующий узел. Узлы не обязаны лежать рядом в памяти.",
+      "definition_en": "A data structure made of nodes where each node stores a value and a reference to the next node.",
+      "definition_ru": "Структура данных из узлов, где каждый узел хранит значение и ссылку на следующий узел.",
+      "notes_en": "Fast insert/delete near a known position, but slow access by index because you must traverse.",
+      "notes_ru": "Быстрая вставка/удаление рядом с известной позицией, но медленный доступ по индексу, потому что нужен обход."
+    },
+    {
+      "key": "node",
+      "term_en": "Node",
+      "term_ru": "Узел",
+      "definition_ru_easy": "Один элемент связанного списка. Обычно содержит данные (value) и ссылку (next) на следующий узел.",
+      "definition_en": "A single element in a linked list that stores data and a link to the next node.",
+      "definition_ru": "Элемент связанного списка, который хранит данные и ссылку на следующий узел."
+    },
+    {
+      "key": "reference",
+      "term_en": "Reference",
+      "term_ru": "Ссылка",
+      "definition_ru_easy": "Указание на другой объект в памяти. В связном списке поле next хранит ссылку на следующий узел.",
+      "definition_en": "A value that points to an object in memory (not the object itself).",
+      "definition_ru": "Сущность, которая указывает на объект в памяти, а не копирует его.",
+      "notes_en": "In JavaScript, objects are typically handled via references.",
+      "notes_ru": "В JavaScript чаще говорят про references, а не про указатели в стиле C/C++."
+    },
+    {
+      "key": "pointer",
+      "term_en": "Pointer",
+      "term_ru": "Указатель",
+      "definition_ru_easy": "Переменная, которая хранит адрес в памяти. В JavaScript прямых указателей нет, но ссылки похожи по идее: они указывают на объект.",
+      "definition_en": "A variable that stores a memory address.",
+      "definition_ru": "Переменная, которая хранит адрес в памяти."
+    },
+    {
+      "key": "update_pointer",
+      "term_en": "Update pointer/reference",
+      "term_ru": "Изменить указатель/ссылку",
+      "definition_ru_easy": "Ключевая операция в связном списке: чтобы вставить или удалить узел, часто достаточно изменить ссылку next у предыдущего узла."
+    },
+    {
+      "key": "traversal",
+      "term_en": "Traversal",
+      "term_ru": "Обход",
+      "definition_ru_easy": "Последовательный проход по структуре данных. В связном списке обход делается, переходя current = current.next, пока current не станет null.",
+      "definition_en": "Visiting elements of a data structure in some order, commonly from start to end.",
+      "definition_ru": "Проход по элементам структуры данных в определённом порядке."
+    },
+    {
+      "key": "head",
+      "term_en": "Head",
+      "term_ru": "Голова списка",
+      "definition_ru_easy": "Первый узел связанного списка. От него начинается обход.",
+      "definition_en": "The first node in a linked list.",
+      "definition_ru": "Первый узел связанного списка."
+    },
+    {
+      "key": "tail",
+      "term_en": "Tail",
+      "term_ru": "Хвост списка",
+      "definition_ru_easy": "Последний узел связанного списка. У него next обычно равен null.",
+      "definition_en": "The last node in a linked list (its next is usually null).",
+      "definition_ru": "Последний узел связанного списка, у которого next обычно равен null.",
+      "notes_en": "Keeping a tail pointer can make appending to the end O(1).",
+      "notes_ru": "Если хранить ссылку на tail, добавление в конец можно сделать за O(1)."
+    },
+    {
+      "key": "dynamic_array",
+      "term_en": "Dynamic array",
+      "term_ru": "Динамический массив",
+      "definition_ru_easy": "Массив, который может увеличиваться по мере добавления элементов. Иногда при росте ему нужен новый более большой блок памяти, и тогда элементы копируются.",
+      "definition_en": "An array that can grow; when capacity is exceeded it reallocates and copies elements.",
+      "definition_ru": "Массив, который умеет расширяться, иногда копируя элементы в новый участок памяти."
+    },
+    {
+      "key": "reallocation",
+      "term_en": "Reallocation",
+      "term_ru": "Перевыделение памяти",
+      "definition_ru_easy": "Когда под массив не хватает места, выделяется новый блок памяти побольше, и элементы копируются туда.",
+      "definition_en": "Allocating a new, larger memory block and copying existing elements into it.",
+      "definition_ru": "Выделение нового блока памяти с последующим копированием элементов."
+    },
+    {
+      "key": "push",
+      "term_en": "push()",
+      "term_ru": "push()",
+      "definition_ru_easy": "Метод массива в JavaScript, который добавляет элемент в конец массива и увеличивает его длину.",
+      "definition_en": "JavaScript array method that appends an element to the end of an array.",
+      "definition_ru": "Метод массива в JavaScript, добавляющий элемент в конец массива."
+    },
+    {
+      "key": "pop",
+      "term_en": "pop()",
+      "term_ru": "pop()",
+      "definition_ru_easy": "Метод массива в JavaScript, который удаляет последний элемент массива и возвращает его.",
+      "definition_en": "JavaScript array method that removes and returns the last element of an array.",
+      "definition_ru": "Метод массива в JavaScript, удаляющий и возвращающий последний элемент массива."
+    },
+    {
+      "key": "splice",
+      "term_en": "splice()",
+      "term_ru": "splice()",
+      "definition_ru_easy": "Метод массива в JavaScript, который может удалить элементы или вставить элементы в середину массива.",
+      "definition_en": "JavaScript array method that can remove and/or insert elements at a given index.",
+      "definition_ru": "Метод массива в JavaScript, который удаляет и/или вставляет элементы по индексу."
+    },
+    {
+      "key": "big_o",
+      "term_en": "Big O notation",
+      "term_ru": "Нотация O-большое",
+      "definition_ru_easy": "Способ описывать, как растёт время или память алгоритма при увеличении размера входных данных (n).",
+      "definition_en": "A notation describing how runtime or memory grows as input size n grows.",
+      "definition_ru": "Нотация для описания роста времени или памяти алгоритма при росте n.",
+      "notes_en": "Big O focuses on growth rate, not exact timing.",
+      "notes_ru": "О-большое описывает порядок роста, а не точное время."
+    },
+    {
+      "key": "time_complexity",
+      "term_en": "Time complexity",
+      "term_ru": "Временная сложность",
+      "definition_ru_easy": "Оценка того, как растёт время выполнения алгоритма при росте n. Например, O(1), O(n), O(n^2).",
+      "definition_en": "How the number of operations grows with input size n.",
+      "definition_ru": "Оценка роста количества операций (времени) при увеличении n."
+    },
+    {
+      "key": "space_complexity",
+      "term_en": "Space complexity",
+      "term_ru": "Пространственная сложность",
+      "definition_ru_easy": "Оценка того, сколько дополнительной памяти нужно алгоритму при росте n.",
+      "definition_en": "How additional memory usage grows with input size n.",
+      "definition_ru": "Оценка роста дополнительной памяти алгоритма при увеличении n."
+    },
+    {
+      "key": "constant_time",
+      "term_en": "O(1)",
+      "term_ru": "O(1)",
+      "definition_ru_easy": "Постоянное время: операция занимает примерно одинаковое время независимо от n. Пример: чтение элемента массива по индексу.",
+      "definition_en": "Constant time: does not grow with n.",
+      "definition_ru": "Постоянная сложность: время не растёт с n."
+    },
+    {
+      "key": "linear_time",
+      "term_en": "O(n)",
+      "term_ru": "O(n)",
+      "definition_ru_easy": "Линейное время: операция растёт пропорционально n. Пример: сдвиг элементов массива при вставке или удалении.",
+      "definition_en": "Linear time: grows proportionally to n.",
+      "definition_ru": "Линейная сложность: время растёт пропорционально n."
+    },
+    {
+      "key": "quadratic_time",
+      "term_en": "O(n^2)",
+      "term_ru": "O(n^2)",
+      "definition_ru_easy": "Квадратичное время: часто бывает у алгоритмов с вложенными циклами, например у сортировки выбором.",
+      "definition_en": "Quadratic time: grows roughly as n squared.",
+      "definition_ru": "Квадратичная сложность: время растёт примерно как n в квадрате."
+    },
+    {
+      "key": "access",
+      "term_en": "Access",
+      "term_ru": "Доступ к элементам",
+      "definition_ru_easy": "Операция получения элемента для чтения или изменения. У массива доступ по индексу быстрый, у списка часто нужен обход.",
+      "definition_en": "Getting an element for reading or updating.",
+      "definition_ru": "Операция получения элемента структуры данных для чтения или изменения."
+    },
+    {
+      "key": "insertion",
+      "term_en": "Insertion",
+      "term_ru": "Вставка",
+      "definition_ru_easy": "Операция добавления элемента внутрь структуры данных. В массиве вставка в середину обычно требует сдвига элементов, поэтому это часто O(n).",
+      "definition_en": "Adding an element to a data structure.",
+      "definition_ru": "Операция добавления элемента(ов) в структуру данных.",
+      "notes_en": "In arrays, insertion into the middle often requires shifting; in linked lists it can be done by updating references.",
+      "notes_ru": "В массиве вставка в середину часто требует сдвига; в списке это обычно делается перенастройкой ссылок."
+    },
+    {
+      "key": "deletion",
+      "term_en": "Deletion",
+      "term_ru": "Удаление",
+      "definition_ru_easy": "Операция удаления элемента. В массиве после удаления нужно сдвинуть элементы, чтобы закрыть дырку, поэтому обычно это O(n).",
+      "definition_en": "Removing an element from a data structure.",
+      "definition_ru": "Операция удаления элемента(ов) из структуры данных.",
+      "notes_en": "Array deletion often shifts elements; linked list deletion often updates one reference.",
+      "notes_ru": "Удаление в массиве часто сдвигает элементы; в списке часто достаточно изменить одну ссылку."
+    },
+    {
+      "key": "shift_right",
+      "term_en": "Shift right",
+      "term_ru": "Сдвиг вправо",
+      "definition_ru_easy": "При вставке в массив элементы после позиции вставки двигаются к большим индексам, чтобы освободить место.",
+      "definition_en": "Moving elements to higher indexes to make room for insertion.",
+      "definition_ru": "Сдвиг элементов массива к большим индексам, чтобы освободить место."
+    },
+    {
+      "key": "shift_left",
+      "term_en": "Shift left",
+      "term_ru": "Сдвиг влево",
+      "definition_ru_easy": "При удалении из массива элементы после удалённого двигаются к меньшим индексам, чтобы не оставлять дырку.",
+      "definition_en": "Moving elements to lower indexes to fill the gap after deletion.",
+      "definition_ru": "Сдвиг элементов массива к меньшим индексам, чтобы закрыть пустоту."
+    },
+    {
+      "key": "update_reference",
+      "term_en": "Update a reference",
+      "term_ru": "Изменить ссылку",
+      "definition_ru_easy": "Базовая операция для вставки или удаления в связном списке: вместо сдвига элементов мы перенастраиваем next у предыдущего узла.",
+      "definition_en": "Changing a pointer/reference so nodes link in a new way.",
+      "definition_ru": "Перенастройка ссылки, чтобы изменить связи между узлами."
+    },
+    {
+      "key": "comparison",
+      "term_en": "Comparison",
+      "term_ru": "Сравнение",
+      "definition_ru_easy": "Операция вида a < b или a > b. Во многих сортировках именно сравнения занимают основную часть работы.",
+      "definition_en": "Checking ordering between two values (e.g., a < b).",
+      "definition_ru": "Операция проверки порядка между двумя значениями."
+    },
+    {
+      "key": "iteration",
+      "term_en": "Iteration",
+      "term_ru": "Итерация",
+      "definition_ru_easy": "Один повтор цикла. В сортировке выбором каждая итерация фиксирует один элемент на правильном месте.",
+      "definition_en": "One repetition of a loop.",
+      "definition_ru": "Один повтор (шаг) цикла."
+    },
+    {
+      "key": "sorting",
+      "term_en": "Sorting",
+      "term_ru": "Сортировка",
+      "definition_ru_easy": "Процесс упорядочивания элементов (например, по возрастанию).",
+      "definition_en": "Reordering elements into a defined order (e.g., ascending).",
+      "definition_ru": "Упорядочивание элементов по заданному правилу."
+    },
+    {
+      "key": "selection_sort",
+      "term_en": "Selection sort",
+      "term_ru": "Сортировка выбором",
+      "definition_ru_easy": "Алгоритм сортировки: на каждом шаге ищем минимальный элемент в неотсортированной части и ставим его в начало. Повторяем, пока массив не станет отсортированным.",
+      "definition_en": "Repeatedly pick the smallest element from the unsorted part and move it to the front.",
+      "definition_ru": "Алгоритм: на каждом шаге выбирается минимальный элемент из неотсортированной части и ставится на своё место.",
+      "notes_en": "Time complexity is typically O(n^2) due to repeated scans for the minimum.",
+      "notes_ru": "Обычно O(n^2), потому что минимум ищется много раз линейным проходом."
+    },
+    {
+      "key": "sorted_part",
+      "term_en": "Sorted part",
+      "term_ru": "Отсортированная часть",
+      "definition_ru_easy": "Часть массива, где элементы уже стоят на правильных позициях. В сортировке выбором она растёт слева направо.",
+      "definition_en": "The portion of the array that is already in correct order.",
+      "definition_ru": "Часть массива, которая уже отсортирована."
+    },
+    {
+      "key": "unsorted_part",
+      "term_en": "Unsorted part",
+      "term_ru": "Неотсортированная часть",
+      "definition_ru_easy": "Часть массива, где элементы ещё не упорядочены. В сортировке выбором минимум ищется именно здесь.",
+      "definition_en": "The portion of the array not yet sorted.",
+      "definition_ru": "Часть массива, которая ещё не отсортирована."
+    },
+    {
+      "key": "minimum_element",
+      "term_en": "Minimum element",
+      "term_ru": "Минимальный элемент",
+      "definition_ru_easy": "Самое маленькое значение среди рассматриваемых элементов. В сортировке выбором минимум ищется на каждом шаге.",
+      "definition_en": "The smallest value in a set.",
+      "definition_ru": "Элемент с наименьшим значением в наборе."
+    },
+    {
+      "key": "find_smallest_index",
+      "term_en": "Find smallest index",
+      "term_ru": "Поиск индекса минимального элемента",
+      "definition_ru_easy": "Проходим массив, запоминаем текущий минимум и его индекс. Если нашли меньше, обновляем минимум и индекс.",
+      "definition_en": "Scan the array, track the smallest value seen and its index.",
+      "definition_ru": "Линейный поиск минимума с сохранением его индекса."
+    },
+    {
+      "key": "swap",
+      "term_en": "Swap",
+      "term_ru": "Обмен местами",
+      "definition_ru_easy": "Операция, которая меняет местами два элемента массива.",
+      "definition_en": "Exchanging two elements' positions in an array.",
+      "definition_ru": "Перестановка двух элементов массива местами."
+    },
+    {
+      "key": "queue",
+      "term_en": "Queue",
+      "term_ru": "Очередь",
+      "definition_ru_easy": "Структура данных по принципу FIFO: первый пришёл, первый ушёл.",
+      "definition_en": "A FIFO data structure: first in, first out.",
+      "definition_ru": "Структура данных FIFO: первый вошёл, первый вышел."
+    },
+    {
+      "key": "fifo",
+      "term_en": "FIFO",
+      "term_ru": "FIFO",
+      "definition_ru_easy": "First In, First Out: первым обслуживается тот, кто пришёл раньше.",
+      "definition_en": "First In, First Out: the earliest inserted item is removed first.",
+      "definition_ru": "Принцип очереди: первый пришёл, первый обслужен."
+    }
+  ]
+}
