@@ -1,0 +1,156 @@
+{
+  "lecture": 5,
+  "topic_ru": "Рекурсия. Стек вызовов",
+  "terms": [
+    {
+      "key": "recursion",
+      "term_en": "Recursion",
+      "term_ru": "Рекурсия",
+      "definition_ru_easy": "Рекурсия — когда функция вызывает саму себя, чтобы решить задачу по частям.",
+      "definition_en": "A technique where a function calls itself to solve a problem by reducing it to smaller subproblems.",
+      "definition_ru": "Приём программирования, при котором функция вызывает саму себя, решая задачу через уменьшение её размера.",
+      "notes_en": "Recursion is useful when it makes the solution clearer. It often trades speed for readability and uses extra memory via the call stack.",
+      "notes_ru": "Рекурсия полезна, когда делает решение понятнее. Часто она использует больше памяти из-за стека вызовов и может быть медленнее цикла."
+    },
+    {
+      "key": "base_case",
+      "term_en": "Base Case",
+      "term_ru": "Базовый случай",
+      "definition_ru_easy": "Базовый случай — условие, когда рекурсия должна остановиться.",
+      "definition_en": "A stopping condition that prevents recursive calls from continuing forever.",
+      "definition_ru": "Условие завершения рекурсивной функции, при котором дальнейшие вызовы самой себя прекращаются.",
+      "notes_en": "Without a base case, recursion typically becomes infinite and crashes (stack overflow).",
+      "notes_ru": "Без базового случая рекурсия обычно становится бесконечной и приводит к ошибке переполнения стека."
+    },
+    {
+      "key": "recursive_case",
+      "term_en": "Recursive Case",
+      "term_ru": "Рекурсивный шаг",
+      "definition_ru_easy": "Рекурсивный шаг — часть функции, где она вызывает себя с более простой задачей.",
+      "definition_en": "The part of a recursive function that calls itself with a smaller or simpler input.",
+      "definition_ru": "Часть рекурсивной функции, в которой происходит вызов самой себя с уменьшенным или упрощённым входом.",
+      "notes_en": "A good recursive case makes measurable progress toward the base case each time.",
+      "notes_ru": "Хороший рекурсивный шаг каждый раз реально приближает к базовому случаю."
+    },
+    {
+      "key": "iteration",
+      "term_en": "Iteration",
+      "term_ru": "Итерация",
+      "definition_ru_easy": "Итерация — повторение действий шаг за шагом, обычно с циклом.",
+      "definition_en": "Repeated execution of a block of code, typically using loops.",
+      "definition_ru": "Повторяющееся выполнение набора действий, обычно реализуемое с помощью циклов.",
+      "notes_en": "Many recursive solutions can be rewritten as iterative ones, often using an explicit stack or queue.",
+      "notes_ru": "Многие рекурсивные решения можно переписать итеративно, часто используя явный стек или очередь."
+    },
+    {
+      "key": "while_loop",
+      "term_en": "While Loop",
+      "term_ru": "Цикл while",
+      "definition_ru_easy": "Цикл while выполняется, пока условие истинно.",
+      "definition_en": "A loop that repeats as long as its condition is true.",
+      "definition_ru": "Цикл, который выполняется до тех пор, пока заданное условие остаётся истинным.",
+      "notes_en": "While is commonly used for search/process-until-empty patterns (e.g., while a stack is not empty).",
+      "notes_ru": "while часто используют для схемы «обрабатывай, пока не закончится» (например, пока стек не пуст)."
+    },
+    {
+      "key": "pseudocode",
+      "term_en": "Pseudocode",
+      "term_ru": "Псевдокод",
+      "definition_ru_easy": "Псевдокод — описание алгоритма простыми словами, похоже на код, но без строгого синтаксиса.",
+      "definition_en": "An informal, code-like description of an algorithm that focuses on logic rather than syntax.",
+      "definition_ru": "Неформальное описание алгоритма в стиле кода, где важна логика, а не точный синтаксис языка программирования.",
+      "notes_en": "Pseudocode is great for reasoning about steps, edge cases, and stopping conditions before coding.",
+      "notes_ru": "Псевдокод помогает продумать шаги, крайние случаи и остановку рекурсии ещё до написания кода."
+    },
+    {
+      "key": "stack",
+      "term_en": "Stack",
+      "term_ru": "Стек",
+      "definition_ru_easy": "Стек — структура данных, где последний добавленный элемент достаётся первым.",
+      "definition_en": "A LIFO data structure where the last item added is the first one removed.",
+      "definition_ru": "Структура данных типа LIFO, в которой последний добавленный элемент извлекается первым.",
+      "notes_en": "Stacks are used for undo, parsing, DFS, and for managing function calls (call stack).",
+      "notes_ru": "Стек используют для undo, разбора выражений, DFS и для управления вызовами функций (стек вызовов)."
+    },
+    {
+      "key": "lifo",
+      "term_en": "LIFO (Last In, First Out)",
+      "term_ru": "LIFO (последним вошёл, первым вышел)",
+      "definition_ru_easy": "LIFO — правило стека: что положили последним, то достанете первым.",
+      "definition_en": "An ordering rule where the most recently added element is removed first.",
+      "definition_ru": "Принцип упорядочивания элементов, при котором последний добавленный элемент извлекается первым.",
+      "notes_en": "LIFO matches the way function calls return: the newest call must finish before the previous continues.",
+      "notes_ru": "LIFO совпадает с тем, как функции возвращаются: последний вызов должен завершиться раньше, чем продолжится предыдущий."
+    },
+    {
+      "key": "push",
+      "term_en": "Push",
+      "term_ru": "Push (занести в стек)",
+      "definition_ru_easy": "Push — добавить элемент на вершину стека.",
+      "definition_en": "To add an element to the top of a stack.",
+      "definition_ru": "Операция добавления элемента на вершину стека.",
+      "notes_en": "In call stacks, calling a function effectively pushes a new frame onto the stack.",
+      "notes_ru": "В стеке вызовов вызов функции фактически добавляет новый кадр (frame) на вершину стека."
+    },
+    {
+      "key": "pop",
+      "term_en": "Pop",
+      "term_ru": "Pop (извлечь из стека)",
+      "definition_ru_easy": "Pop — снять верхний элемент со стека и получить его значение.",
+      "definition_en": "To remove and return the element at the top of a stack.",
+      "definition_ru": "Операция удаления верхнего элемента стека с одновременным получением его значения.",
+      "notes_en": "When a function finishes, its stack frame is popped and control returns to the previous frame.",
+      "notes_ru": "Когда функция завершается, её кадр удаляется из стека, и выполнение возвращается к предыдущему вызову."
+    },
+    {
+      "key": "call_stack",
+      "term_en": "Call Stack",
+      "term_ru": "Стек вызовов",
+      "definition_ru_easy": "Стек вызовов хранит, какие функции сейчас выполняются и куда возвращаться после завершения.",
+      "definition_en": "A runtime stack that keeps track of active function calls and where execution should return.",
+      "definition_ru": "Структура времени выполнения, которая хранит активные вызовы функций и точки возврата для продолжения выполнения.",
+      "notes_en": "The top of the call stack is the currently running function. Earlier calls are paused until it returns.",
+      "notes_ru": "Верх стека вызовов — текущая функция. Предыдущие вызовы «приостановлены», пока текущая не завершится."
+    },
+    {
+      "key": "stack_frame",
+      "term_en": "Stack Frame",
+      "term_ru": "Кадр стека (stack frame)",
+      "definition_ru_easy": "Кадр стека — «папка» одного вызова функции: параметры, локальные переменные и адрес возврата.",
+      "definition_en": "A block of data on the call stack that stores a function call’s local state and return address.",
+      "definition_ru": "Блок данных в стеке вызовов, содержащий состояние одного вызова функции: локальные переменные, аргументы и адрес возврата.",
+      "notes_en": "Deep recursion creates many frames and can consume lots of memory.",
+      "notes_ru": "Глубокая рекурсия создаёт много кадров и может съесть много памяти."
+    },
+    {
+      "key": "paused_state",
+      "term_en": "Paused State (Suspended Execution)",
+      "term_ru": "Приостановка выполнения",
+      "definition_ru_easy": "Приостановка — когда функция ждёт, пока завершится вызванная ею функция, чтобы продолжить.",
+      "definition_en": "When a function temporarily stops progressing because it is waiting for a called function to return.",
+      "definition_ru": "Состояние, при котором выполнение функции временно остановлено, потому что она ожидает завершения вложенного вызова.",
+      "notes_en": "This is why call stacks matter: they preserve the exact point to resume from.",
+      "notes_ru": "Из-за этого важен стек вызовов: он хранит точку, с которой нужно продолжить выполнение."
+    },
+    {
+      "key": "stack_overflow",
+      "term_en": "Stack Overflow",
+      "term_ru": "Переполнение стека",
+      "definition_ru_easy": "Переполнение стека — ошибка, когда вызовов слишком много и стек заканчивается.",
+      "definition_en": "A crash/error that happens when the call stack exceeds its memory limit, often due to deep or infinite recursion.",
+      "definition_ru": "Ошибка, возникающая при превышении лимита памяти стека вызовов, часто из-за глубокой или бесконечной рекурсии.",
+      "notes_en": "Common causes: missing base case, wrong progress toward the base case, or very large inputs.",
+      "notes_ru": "Частые причины: нет базового случая, нет движения к нему, или слишком большой размер входных данных."
+    },
+    {
+      "key": "tail_recursion",
+      "term_en": "Tail Recursion",
+      "term_ru": "Хвостовая рекурсия",
+      "definition_ru_easy": "Хвостовая рекурсия — когда рекурсивный вызов стоит последним действием в функции.",
+      "definition_en": "A form of recursion where the recursive call is the last operation in the function.",
+      "definition_ru": "Вид рекурсии, при котором рекурсивный вызов является последним действием функции (после него ничего не считается).",
+      "notes_en": "Some languages optimize tail recursion to reduce stack usage, but JavaScript engines typically don’t guarantee it.",
+      "notes_ru": "Некоторые языки оптимизируют хвостовую рекурсию и экономят стек, но в JavaScript это обычно не гарантируется."
+    }
+  ]
+}

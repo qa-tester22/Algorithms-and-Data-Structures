@@ -4,7 +4,8 @@
  ## 1 Задача. Третья задача квест Литкода уровень 2.
  - [ https://leetcode.com/problems/find-all-numbers-disappeared-in-an-array/?envType=problem-list-v2&envId=dsa-linear-shoal-array-ii] 
  LeetCode Quest (Level 2): 
- 
+ Решение <https://youtu.be/MU7TLuXcfaI>
+ Видео: 1929 LeetCode Соединение массивов на JS: 6 способов, паттерны и что выбрать | Concatenation of Array.
 
 ## 2 Задача. 27. Remove Element
 - [ https://leetcode.com/problems/remove-element/description/] LeetCode 
