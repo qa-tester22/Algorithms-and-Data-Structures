@@ -3,7 +3,7 @@
 
  ## 1 Задача. Первая задача квест Литкода уровень 3.
  - [ https://leetcode.com/problems/build-an-array-with-stack-operations/?envType=problem-list-v2&envId=dsa-linear-shoal-stack] 
- LeetCode Quest (Level 3): Q1. Build an Array With Stack Operations 
+ LeetCode Quest (Level 3): Q1. Build an Array With Stack Operations (Задача 1441.)
  Решение <>
  Видео: 
 

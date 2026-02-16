@@ -1,0 +1,126 @@
+{
+  "lecture": 6,
+  "topic_ru": "Стратегия «Разделяй и властвуй»",
+  "terms": [
+    {
+      "key": "divide_and_conquer",
+      "term_en": "Divide and Conquer",
+      "term_ru": "Разделяй и властвуй",
+      "definition_ru_easy": "Стратегия решения задач: разбиваем большую задачу на меньшие части, решаем их и собираем результат.",
+      "definition_en": "A problem-solving strategy that divides a problem into smaller subproblems, solves them, and combines their results.",
+      "definition_ru": "Стратегия решения, при которой задача разбивается на подзадачи меньшего размера, подзадачи решаются, а затем их результаты объединяются.",
+      "notes_en": "Typical pattern: divide, conquer, combine. Many classic algorithms (e.g., quicksort, mergesort) follow it.",
+      "notes_ru": "Обычно есть три шага: разделить, решить, объединить. По этой схеме устроены многие алгоритмы, включая быструю сортировку."
+    },
+    {
+      "key": "problem_decomposition",
+      "term_en": "Problem Decomposition",
+      "term_ru": "Декомпозиция задачи",
+      "definition_ru_easy": "Разбиение задачи на понятные кусочки, которые проще решить по отдельности.",
+      "definition_en": "Breaking a problem into smaller, simpler pieces that are easier to solve separately.",
+      "definition_ru": "Процесс разбиения исходной задачи на более простые части, каждая из которых решается отдельно или по одинаковому шаблону.",
+      "notes_en": "Good decomposition usually makes each piece smaller in a measurable way (size, range, number of elements).",
+      "notes_ru": "Хорошая декомпозиция всегда уменьшает задачу по какому-то параметру: длина, диапазон, количество элементов."
+    },
+    {
+      "key": "subproblem",
+      "term_en": "Subproblem",
+      "term_ru": "Подзадача",
+      "definition_ru_easy": "Меньшая задача, которая получается после разбиения основной задачи.",
+      "definition_en": "A smaller problem produced by splitting the original problem.",
+      "definition_ru": "Часть исходной задачи, решаемая отдельно; часто подзадачи имеют ту же структуру, что и исходная задача, но меньший размер.",
+      "notes_en": "In divide and conquer, subproblems are often solved using the same method repeatedly.",
+      "notes_ru": "В «разделяй и властвуй» подзадачи часто решаются тем же способом, что и исходная задача, только на меньшем входе."
+    },
+    {
+      "key": "combine_step",
+      "term_en": "Combine Step",
+      "term_ru": "Этап объединения",
+      "definition_ru_easy": "Шаг, когда мы собираем решение из решений подзадач.",
+      "definition_en": "The step where solutions of subproblems are merged into the final solution.",
+      "definition_ru": "Этап, на котором результаты решения подзадач объединяются для получения ответа для исходной задачи.",
+      "notes_en": "Sometimes the combine step is cheap (quicksort), sometimes it dominates the cost (mergesort).",
+      "notes_ru": "Иногда объединение почти бесплатное (quicksort), а иногда оно самое затратное (mergesort)."
+    },
+    {
+      "key": "euclidean_algorithm",
+      "term_en": "Euclidean Algorithm",
+      "term_ru": "Алгоритм Евклида",
+      "definition_ru_easy": "Способ быстро найти НОД: заменяем пару чисел на более маленькую пару, пока одно не станет нулём.",
+      "definition_en": "An efficient method to compute the greatest common divisor (GCD) by repeatedly reducing the problem size.",
+      "definition_ru": "Эффективный алгоритм нахождения наибольшего общего делителя двух чисел путём повторного уменьшения задачи (через остаток от деления).",
+      "notes_en": "Classic form: gcd(a, b) = gcd(b, a mod b) until b = 0.",
+      "notes_ru": "Классическая формула: gcd(a, b) = gcd(b, a mod b) до тех пор, пока b не станет 0."
+    },
+    {
+      "key": "gcd",
+      "term_en": "Greatest Common Divisor (GCD)",
+      "term_ru": "Наибольший общий делитель (НОД)",
+      "definition_ru_easy": "Самое большое число, на которое делятся оба числа без остатка.",
+      "definition_en": "The largest integer that divides two integers without leaving a remainder.",
+      "definition_ru": "Наибольшее целое число, на которое оба числа делятся без остатка.",
+      "notes_en": "GCD is used in simplifying fractions, working with ratios, and geometry tasks like cutting equal squares.",
+      "notes_ru": "НОД нужен для сокращения дробей, работы с пропорциями и геометрических задач вроде разбиения прямоугольника на одинаковые квадраты."
+    },
+    {
+      "key": "modulo",
+      "term_en": "Modulo (Remainder)",
+      "term_ru": "Остаток от деления (mod)",
+      "definition_ru_easy": "Это то, что остаётся после деления, например 17 mod 5 = 2.",
+      "definition_en": "The remainder after integer division, written as a mod b.",
+      "definition_ru": "Остаток, который остаётся после целочисленного деления; записывается как a mod b.",
+      "notes_en": "Modulo is the key operation in the Euclidean algorithm’s reduction step.",
+      "notes_ru": "Операция mod это ключевой шаг уменьшения задачи в алгоритме Евклида."
+    },
+    {
+      "key": "partitioning",
+      "term_en": "Partitioning",
+      "term_ru": "Разбиение (partition)",
+      "definition_ru_easy": "Разделение элементов на две группы по правилу, например меньше и больше опорного элемента.",
+      "definition_en": "Rearranging elements into groups according to a rule, often around a pivot value.",
+      "definition_ru": "Процесс перестановки элементов так, чтобы они оказались в разных группах по заданному критерию, обычно относительно опорного элемента.",
+      "notes_en": "Partitioning is the core mechanical step inside quicksort.",
+      "notes_ru": "Разбиение это основной механический шаг внутри быстрой сортировки."
+    },
+    {
+      "key": "pivot",
+      "term_en": "Pivot",
+      "term_ru": "Опорный элемент",
+      "definition_ru_easy": "Элемент, относительно которого мы делим массив на меньшие и большие значения.",
+      "definition_en": "A chosen element used to split data into smaller and larger parts during partitioning.",
+      "definition_ru": "Выбранный элемент, относительно которого данные разделяются на части: элементы меньше опорного и элементы больше опорного.",
+      "notes_en": "Pivot choice affects performance; bad pivots can cause worst-case behavior.",
+      "notes_ru": "Выбор опорного влияет на скорость; неудачный опорный может привести к худшему случаю."
+    },
+    {
+      "key": "quicksort",
+      "term_en": "Quicksort",
+      "term_ru": "Быстрая сортировка",
+      "definition_ru_easy": "Сортировка: выбираем опорный элемент, делим массив на меньше и больше, затем сортируем части тем же способом.",
+      "definition_en": "A divide-and-conquer sorting algorithm that partitions around a pivot and recursively sorts the partitions.",
+      "definition_ru": "Алгоритм сортировки по стратегии «разделяй и властвуй»: выбирается опорный элемент, массив разбивается на части и части сортируются рекурсивно.",
+      "notes_en": "Average time is O(n log n), but worst case is O(n^2) if partitions are very unbalanced.",
+      "notes_ru": "В среднем работает за O(n log n), но в худшем случае может деградировать до O(n^2), если разбиения сильно перекошены."
+    },
+    {
+      "key": "functional_programming",
+      "term_en": "Functional Programming",
+      "term_ru": "Функциональное программирование",
+      "definition_ru_easy": "Стиль программирования, где всё строится вокруг функций и преобразований данных, а не вокруг циклов и изменяемого состояния.",
+      "definition_en": "A programming paradigm that emphasizes functions, expressions, and transforming data, often avoiding mutable state.",
+      "definition_ru": "Парадигма программирования, в которой основная идея это вычисления как композиция функций и выражений, часто с минимизацией изменяемого состояния.",
+      "notes_en": "Some functional languages favor recursion over loops as a primary iteration mechanism.",
+      "notes_ru": "В функциональных языках часто используют рекурсию как основной способ повторения вместо привычных циклов."
+    },
+    {
+      "key": "pure_function",
+      "term_en": "Pure Function",
+      "term_ru": "Чистая функция",
+      "definition_ru_easy": "Функция, которая для одинакового ввода всегда даёт одинаковый вывод и не меняет ничего снаружи.",
+      "definition_en": "A function that always returns the same output for the same input and has no side effects.",
+      "definition_ru": "Функция, которая при одинаковых входных данных всегда возвращает одинаковый результат и не имеет побочных эффектов.",
+      "notes_en": "Pure functions are easier to test and reason about, and they fit naturally with functional programming.",
+      "notes_ru": "Чистые функции проще тестировать и понимать, поэтому они хорошо сочетаются с функциональным подходом."
+    }
+  ]
+}
