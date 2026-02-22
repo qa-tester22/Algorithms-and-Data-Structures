@@ -23,6 +23,9 @@ console.log({myArray});
 //                            | 0                  | 
 
 // 2) Count elements (recursion)
+// Напишите рекурсивную функцию для подсчета
+// элементов в списке. 
+
 let secondArray = [1, 1, 1, 1, 1];
 let count2 = 0;
 

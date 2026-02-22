@@ -1,0 +1,135 @@
+[
+  {
+    "term": "quicksort",
+    "en": "Quicksort",
+    "ru": "Быстрая сортировка",
+    "definition_en": "A divide-and-conquer sorting algorithm that partitions an array around a pivot and recursively sorts the partitions.",
+    "definition_ru": "Алгоритм сортировки «разделяй и властвуй»: выбирает опорный элемент, делит массив на части и рекурсивно сортирует их."
+  },
+  {
+    "term": "divide_and_conquer",
+    "en": "Divide and conquer",
+    "ru": "Разделяй и властвуй",
+    "definition_en": "A strategy: split the problem into smaller subproblems, solve them recursively, then combine the results.",
+    "definition_ru": "Стратегия: разбить задачу на меньшие подзадачи, решить их (часто рекурсивно) и собрать ответ."
+  },
+  {
+    "term": "pivot",
+    "en": "Pivot",
+    "ru": "Опорный элемент",
+    "definition_en": "The element used as a reference point when partitioning the array into smaller and larger values.",
+    "definition_ru": "Элемент, относительно которого массив делится на значения меньше и больше."
+  },
+  {
+    "term": "partition",
+    "en": "Partition",
+    "ru": "Разбиение (partition)",
+    "definition_en": "The process of rearranging elements so that values smaller than the pivot go left and larger values go right (relative to the pivot).",
+    "definition_ru": "Процесс перестановки элементов так, чтобы все меньшие опорного оказались слева, а большие справа."
+  },
+  {
+    "term": "subarray",
+    "en": "Subarray",
+    "ru": "Подмассив",
+    "definition_en": "A contiguous part of an array, often defined by index boundaries (low..high).",
+    "definition_ru": "Часть массива, обычно задаваемая границами индексов (low..high)."
+  },
+  {
+    "term": "base_case",
+    "en": "Base case",
+    "ru": "Базовый случай",
+    "definition_en": "The smallest input that can be solved directly without recursion (for quicksort, arrays of size 0 or 1).",
+    "definition_ru": "Минимальный случай, решаемый без рекурсии (для быстрой сортировки: массивы длины 0 или 1)."
+  },
+  {
+    "term": "recursion",
+    "en": "Recursion",
+    "ru": "Рекурсия",
+    "definition_en": "A function calling itself to solve smaller versions of the same problem.",
+    "definition_ru": "Функция вызывает саму себя, чтобы решить меньшие версии той же задачи."
+  },
+  {
+    "term": "recursion_stack",
+    "en": "Recursion stack (call stack)",
+    "ru": "Стек вызовов",
+    "definition_en": "Memory used to store active function calls; deep recursion increases stack usage.",
+    "definition_ru": "Память для хранения активных вызовов функций; глубокая рекурсия увеличивает использование стека."
+  },
+  {
+    "term": "average_case",
+    "en": "Average case",
+    "ru": "Средний случай",
+    "definition_en": "Typical performance over many inputs (or random pivot choices); for quicksort, usually O(n log n).",
+    "definition_ru": "Типичная производительность на большинстве входов (или при случайном pivot); для quicksort обычно O(n log n)."
+  },
+  {
+    "term": "worst_case",
+    "en": "Worst case",
+    "ru": "Худший случай",
+    "definition_en": "The slowest performance on the most unlucky inputs; for quicksort this can be O(n^2) with repeatedly unbalanced partitions.",
+    "definition_ru": "Самая медленная работа на неудачных входах; для quicksort это может быть O(n^2) при постоянных перекосах разбиения."
+  },
+  {
+    "term": "big_o",
+    "en": "Big O notation",
+    "ru": "О-большое",
+    "definition_en": "A way to describe how time or space grows with input size, ignoring constants and lower-order terms.",
+    "definition_ru": "Нотация для оценки роста времени или памяти от размера входа, игнорируя константы и меньшие слагаемые."
+  },
+  {
+    "term": "n_log_n",
+    "en": "n log n",
+    "ru": "n log n",
+    "definition_en": "A common complexity for efficient comparison sorts; arises when we do log n levels of work, each processing n elements.",
+    "definition_ru": "Частая сложность для эффективных сортировок сравнением: log n уровней, на каждом обрабатывается n элементов."
+  },
+  {
+    "term": "constant_factor",
+    "en": "Constant factor",
+    "ru": "Константный множитель",
+    "definition_en": "A constant multiplier in runtime; Big O ignores it, but in practice it affects real speed.",
+    "definition_ru": "Постоянный множитель во времени выполнения; Big O его игнорирует, но на практике он влияет на скорость."
+  },
+  {
+    "term": "merge_sort",
+    "en": "Merge sort",
+    "ru": "Сортировка слиянием",
+    "definition_en": "A divide-and-conquer sorting algorithm with guaranteed O(n log n) time but usually needs extra memory to merge.",
+    "definition_ru": "Алгоритм «разделяй и властвуй» с гарантией O(n log n), но обычно требует дополнительную память для слияния."
+  },
+  {
+    "term": "selection_sort",
+    "en": "Selection sort",
+    "ru": "Сортировка выбором",
+    "definition_en": "A simple sorting algorithm that repeatedly selects the smallest remaining element; O(n^2).",
+    "definition_ru": "Простая сортировка: каждый раз выбирает минимальный элемент; O(n^2)."
+  },
+  {
+    "term": "in_place",
+    "en": "In-place",
+    "ru": "На месте (in-place)",
+    "definition_en": "An algorithm that uses only a small, constant amount of extra memory (beyond the input array).",
+    "definition_ru": "Алгоритм, который использует минимум дополнительной памяти (кроме самого массива)."
+  },
+  {
+    "term": "pivot_strategy",
+    "en": "Pivot strategy",
+    "ru": "Стратегия выбора pivot",
+    "definition_en": "How you choose the pivot (first, last, middle, random, median-of-three); affects the probability of balanced partitions.",
+    "definition_ru": "Как выбирается опорный элемент (первый, последний, средний, случайный, median-of-three); влияет на баланс разбиения."
+  },
+  {
+    "term": "balanced_partition",
+    "en": "Balanced partition",
+    "ru": "Сбалансированное разбиение",
+    "definition_en": "A partition where left and right parts are roughly equal in size, leading to O(n log n) behavior.",
+    "definition_ru": "Разбиение, где левая и правая части примерно одинаковы по размеру, что ведет к O(n log n)."
+  },
+  {
+    "term": "unbalanced_partition",
+    "en": "Unbalanced partition",
+    "ru": "Несбалансированное разбиение",
+    "definition_en": "A partition where one side is much larger than the other, risking O(n^2) behavior if repeated.",
+    "definition_ru": "Разбиение, где одна часть сильно больше другой; если это повторяется, возможен O(n^2)."
+  }
+]
