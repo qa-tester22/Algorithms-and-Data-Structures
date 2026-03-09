@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Lecture 9. Browser Cache Demo</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      max-width: 800px;
+      margin: 40px auto;
+      padding: 0 16px;
+      line-height: 1.5;
+      background: #f7f7f7;
+      color: #222;
+    }
+
+    .card {
+      background: #fff;
+      border: 1px solid #ddd;
+      border-radius: 12px;
+      padding: 24px;
+      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.06);
+    }
+
+    h1 {
+      margin-top: 0;
+      font-size: 28px;
+    }
+
+    p {
+      margin-bottom: 16px;
+    }
+
+    .buttons {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+      margin-bottom: 20px;
+    }
+
+    button {
+      padding: 10px 16px;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      background: #fff;
+      cursor: pointer;
+      font-size: 14px;
+    }
+
+    button:hover {
+      background: #f0f0f0;
+    }
+
+    button:disabled {
+      opacity: 0.6;
+      cursor: not-allowed;
+    }
+
+    pre {
+      background: #111;
+      color: #f5f5f5;
+      padding: 16px;
+      border-radius: 10px;
+      overflow-x: auto;
+      min-height: 220px;
+      white-space: pre-wrap;
+      word-break: break-word;
+    }
+
+    .note {
+      margin-top: 16px;
+      font-size: 14px;
+      color: #555;
+    }
+
+    .status {
+      margin-bottom: 12px;
+      font-size: 14px;
+      color: #444;
+    }
+  </style>
+</head>
+<body>
+  <div class="card">
+    <h1>Cache Example: Planets</h1>
+    <p>
+      Imagine a child asking the same question again and again: how far is the Moon or Mars from Earth.
+      Instead of searching every time, we remember the answer. That is how caching works.
+    </p>
+
+    <div class="buttons">
+      <button data-planet="moon">Distance to Moon</button>
+      <button data-planet="mars">Distance to Mars</button>
+      <button data-planet="jupiter">Distance to Jupiter</button>
+      <button id="clearBtn">Clear cache</button>
+    </div>
+
+    <div class="status" id="status">Ready</div>
+    <pre id="output">Click a planet button.</pre>
+
+    <div class="note">
+      Key idea: <strong>planet → distance</strong>. Cache stores ready answers, so the second request is faster.
+    </div>
+  </div>
+
+  <script>
+    const distances = {
+      moon: 384400,
+      mars: 225000000,
+      jupiter: 778500000
+    };
+
+    function wait(ms) {
+      return new Promise(resolve => setTimeout(resolve, ms));
+    }
+
+    async function fetchDistanceFromServer(planet) {
+      await wait(2000);
+
+      return {
+        planet: planet,
+        distance_km: distances[planet],
+        time: new Date().toISOString()
+      };
+    }
+
+    async function fetchDistance(planet) {
+      const key = `distance:${planet}`;
+      const cached = localStorage.getItem(key);
+
+      if (cached) {
+        return {
+          source: 'cache',
+          data: JSON.parse(cached)
+        };
+      }
+
+      const freshData = await fetchDistanceFromServer(planet);
+      localStorage.setItem(key, JSON.stringify(freshData));
+
+      return {
+        source: 'server',
+        data: freshData
+      };
+    }
+
+    const output = document.getElementById('output');
+    const status = document.getElementById('status');
+    const clearBtn = document.getElementById('clearBtn');
+    const planetButtons = document.querySelectorAll('[data-planet]');
+
+    function setButtonsDisabled(disabled) {
+      planetButtons.forEach(button => {
+        button.disabled = disabled;
+      });
+      clearBtn.disabled = disabled;
+    }
+
+    planetButtons.forEach(button => {
+      button.addEventListener('click', async () => {
+        const planet = button.dataset.planet;
+
+        status.textContent = `Loading ${planet}...`;
+        output.textContent = 'Waiting for response...';
+        setButtonsDisabled(true);
+
+        const startedAt = performance.now();
+        const result = await fetchDistance(planet);
+        const finishedAt = performance.now();
+        const duration = (finishedAt - startedAt).toFixed(0);
+
+        output.textContent =
+          'Source: ' + result.source + '\n' +
+          'Time spent: ' + duration + ' ms\n\n' +
+          JSON.stringify(result.data, null, 2);
+
+        status.textContent = 'Done';
+        setButtonsDisabled(false);
+      });
+    });
+
+    clearBtn.addEventListener('click', () => {
+      Object.keys(distances).forEach(planet => {
+        localStorage.removeItem(`distance:${planet}`);
+      });
+
+      status.textContent = 'Cache cleared';
+      output.textContent = 'Cache cleared';
+    });
+  </script>
+</body>
+</html>

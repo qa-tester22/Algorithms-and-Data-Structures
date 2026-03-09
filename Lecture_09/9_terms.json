@@ -1,0 +1,43 @@
+
+{
+  "hash_function": {
+    "ru": "Хеш-функция — функция, которая преобразует входные данные в число фиксированной длины.",
+    "en": "Hash function — a function that converts input data into a fixed-size numeric value."
+  },
+  "hash_table": {
+    "ru": "Хеш-таблица — структура данных, которая хранит пары ключ-значение и обеспечивает быстрый доступ к данным.",
+    "en": "Hash table — a data structure that stores key-value pairs and provides fast data lookup."
+  },
+  "collision": {
+    "ru": "Коллизия — ситуация, когда разные ключи дают одинаковый хеш.",
+    "en": "Collision — a situation when different keys produce the same hash value."
+  },
+  "key_value": {
+    "ru": "Пара ключ-значение — способ хранения данных, где по ключу можно получить значение.",
+    "en": "Key-value pair — a way of storing data where a value is accessed using a key."
+  },
+  "lookup": {
+    "ru": "Поиск данных по ключу.",
+    "en": "Lookup — searching for data using a key."
+  },
+  "cache": {
+    "ru": "Кеш — временное хранение данных для ускорения повторного доступа.",
+    "en": "Cache — temporary storage used to speed up repeated data access."
+  },
+  "localStorage": {
+    "ru": "LocalStorage — механизм браузера для хранения данных в формате ключ-значение.",
+    "en": "LocalStorage — a browser storage mechanism that stores data as key-value pairs."
+  },
+  "time_complexity": {
+    "ru": "Временная сложность алгоритма.",
+    "en": "Time complexity — the amount of time an algorithm takes depending on input size."
+  },
+  "big_o": {
+    "ru": "Нотация Big O — способ описания сложности алгоритмов.",
+    "en": "Big O notation — a way to describe algorithm complexity."
+  },
+  "constant_time": {
+    "ru": "Постоянная сложность — время выполнения не зависит от размера данных.",
+    "en": "Constant time — execution time does not depend on input size."
+  }
+}

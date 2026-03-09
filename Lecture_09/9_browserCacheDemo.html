@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Lecture 9. Browser Cache Demo</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      max-width: 800px;
+      margin: 40px auto;
+      padding: 0 16px;
+      line-height: 1.5;
+      background: #f7f7f7;
+      color: #222;
+    }
+
+    .card {
+      background: #fff;
+      border: 1px solid #ddd;
+      border-radius: 12px;
+      padding: 24px;
+      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.06);
+    }
+
+    h1 {
+      margin-top: 0;
+      font-size: 28px;
+    }
+
+    p {
+      margin-bottom: 16px;
+    }
+
+    .buttons {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+      margin-bottom: 20px;
+    }
+
+    button {
+      padding: 10px 16px;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      background: #fff;
+      cursor: pointer;
+      font-size: 14px;
+    }
+
+    button:hover {
+      background: #f0f0f0;
+    }
+
+    pre {
+      background: #111;
+      color: #f5f5f5;
+      padding: 16px;
+      border-radius: 10px;
+      overflow-x: auto;
+      min-height: 180px;
+      white-space: pre-wrap;
+      word-break: break-word;
+    }
+
+    .note {
+      margin-top: 16px;
+      font-size: 14px;
+      color: #555;
+    }
+  </style>
+</head>
+<body>
+  <div class="card">
+    <h1>Browser Cache Demo</h1>
+    <p>
+      This example shows how cache works in the browser using <strong>localStorage</strong>.
+      The first click loads fresh data from the simulated server. The next click returns data from cache.
+    </p>
+
+    <div class="buttons">
+      <button id="loadBtn">Load data</button>
+      <button id="clearBtn">Clear cache</button>
+    </div>
+
+    <pre id="output">Click &quot;Load data&quot; to start.</pre>
+
+    <div class="note">
+      Key idea: <strong>URL → data</strong>. That is a key-value pattern, similar to how caching uses fast lookup.
+    </div>
+  </div>
+
+  <script>
+    function fetchDataFromServer(url) {
+      return {
+        url: url,
+        message: 'Fresh data from server',
+        time: new Date().toISOString()
+      };
+    }
+
+    function fetchData(url) {
+      const cached = localStorage.getItem(url);
+
+      if (cached) {
+        return {
+          source: 'cache',
+          data: JSON.parse(cached)
+        };
+      }
+
+      const freshData = fetchDataFromServer(url);
+      localStorage.setItem(url, JSON.stringify(freshData));
+
+      return {
+        source: 'server',
+        data: freshData
+      };
+    }
+
+    const output = document.getElementById('output');
+    const loadBtn = document.getElementById('loadBtn');
+    const clearBtn = document.getElementById('clearBtn');
+    const demoUrl = '/api/products';
+
+    loadBtn.addEventListener('click', () => {
+      const result = fetchData(demoUrl);
+      output.textContent =
+        'Source: ' + result.source + '\n\n' +
+        JSON.stringify(result.data, null, 2);
+    });
+
+    clearBtn.addEventListener('click', () => {
+      localStorage.removeItem(demoUrl);
+      output.textContent = 'Cache cleared';
+    });
+  </script>
+</body>
+</html>
+
+<!-- 
+Шаги
+1. Открыть html страницу (Open with Live Server)
+
+На экране будет:
+Click "Load data" to start.
+Сейчас в кеше ничего нет. localStorage пустой для этого ключа.
+
+2. Нажать Load data первый раз
+
+На экране будет:
+
+Source: server
+{
+  "url": "/api/products",
+  "message": "Fresh data from server",
+  "time": "2026-03-07T23:29:48.694Z"
+}
+
+браузер сначала попытался найти данные в localStorage
+не нашёл
+вызвал fetchDataFromServer()
+получил "свежие" данные
+сохранил их в кэш
+
+3. Открыть DevTools
+
+Application → Local Storage
+
+Найди ключ:
+/api/products
+
+там лежит строка:
+
+{"url":"/api/products","message":"Fresh data from server","time":"2026-03-07T23:29:48.694Z"}
+
+Вот это и есть кэш. Браузер сохранил данные по ключу URL.
+
+4. Ввести в Console
+localStorage.getItem('/api/products')
+
+вернётся строка JSON.
+
+localStorage хранит строки, поэтому мы используем JSON.stringify() при сохранении и JSON.parse() при чтении.
+
+Вот это важный момент.
+
+5. Нажать Load data второй раз
+
+На экране будет:
+
+Source: cache
+{
+  "url": "/api/products",
+  "message": "Fresh data from server",
+  "time": "2026-03-07T23:29:48.694Z"
+}
+
+Самое важное:
+время не изменилось.
+
+второй раз данные уже не создавались заново
+они пришли из кэша
+это видно по Source: cache
+и по тому, что time остался тем же самым
+
+Это ключевой момент всей демки. 
+
+6. Нажать Clear cache
+
+На экране:
+
+Cache cleared
+
+Потом в Console:
+
+localStorage.getItem('/api/products')
+
+Вернётся:
+
+null
+
+Кэш удалён, данных больше нет.
+
+7. Нажать Load data снова
+
+Теперь опять будет:
+Source: server
+И уже новое время.
+
+После очистки кэша данные снова пришлось получать заново.
+
+Сначала программа ищет данные по ключу '/api/products' в localStorage.
+Если данные есть, она берёт их из кэша.
+Если данных нет, она создаёт новый объект, сохраняет его в кэш и показывает на экране.
+Поэтому первый запуск даёт server, а второй cache.
+
+
+cache = key → value
+
+В этом примере:
+
+'/api/products' → JSON data
+
+То есть кэш работает как очень быстрая структура хранения по ключу.
+
+hash tables
+fast lookup
+real-world cache
+
+How to test in DevTools:
+
+1. Click "Load data" once
+2. Open DevTools → Application → Local Storage
+3. Check the key '/api/products'
+4. In Console run:
+   localStorage.getItem('/api/products')
+
+Expected result:
+- first click → Source: server
+- second click → Source: cache
+- after Clear cache → localStorage.getItem('/api/products') returns null
+-->
+
+
+<!-- 
+в консоль ввести 
+
+localStorage.getItem('/api/products') 
+
+результат:
+Live reload enabled.
+после клика кнопки 
+localStorage.getItem('/api/products')
+'{"url":"/api/products","message":"Fresh data from server","time":"2026-03-07T23:29:48.694Z"}'
+после очистки кэша
+localStorage.getItem('/api/products')
+null
+-->
