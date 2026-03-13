@@ -7,15 +7,7 @@
 
 ## Задача 1
 
-**560. Subarray Sum Equals K**
-
-[https://leetcode.com/problems/subarray-sum-equals-k/](https://leetcode.com/problems/subarray-sum-equals-k/)
-
-Найти количество подмассивов, сумма которых равна `k`.
-
-Подсказка:
-
-используйте **hash map для хранения prefix sums**.
+**141. Linked List Cycle**
 
 ---
 
@@ -35,15 +27,7 @@
 
 ## Задача 3
 
-**347. Top K Frequent Elements**
-
-[https://leetcode.com/problems/top-k-frequent-elements/](https://leetcode.com/problems/top-k-frequent-elements/)
-
-Найти `k` самых часто встречающихся элементов массива.
-
-Подсказка:
-
-используйте **hash map для подсчёта частоты**.
+**706. Design HashMap**
 
 ---
 
@@ -78,9 +62,9 @@
 ### Задачи показывают разные применения **hash map**:
 
 ```
-560 → prefix sums + hash map
+141 → Linked List Cycle
 49  → grouping
-347 → frequency counting
+706 → Design HashMap
 451 → frequency + sorting
 525 → prefix sums + hash map
 ```
